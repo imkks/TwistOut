@@ -13,6 +13,7 @@
 .packages
 .pub/
 build/
+coverage/
 *.iml
 *.ipr
 *.iws

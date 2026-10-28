@@ -29,3 +29,13 @@ Map<String, dynamic> _$Rect2DToJson(_Rect2D instance) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
 };
+
+_Polygon _$PolygonFromJson(Map<String, dynamic> json) => _Polygon(
+  vertices: (json['vertices'] as List<dynamic>)
+      .map((e) => Vector2D.fromJson(e as Map<String, dynamic>))
+      .toList(),
+);
+
+Map<String, dynamic> _$PolygonToJson(_Polygon instance) => <String, dynamic>{
+  'vertices': instance.vertices.map((e) => e.toJson()).toList(),
+};

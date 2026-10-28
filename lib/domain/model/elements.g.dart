@@ -8,46 +8,48 @@ part of 'elements.dart';
 
 _Screw _$ScrewFromJson(Map<String, dynamic> json) => _Screw(
   id: json['id'] as String,
-  plate: json['plate'] as String,
-  anchor: (json['anchor'] as num).toInt(),
+  plateId: json['plateId'] as String,
+  anchorIndex: (json['anchorIndex'] as num).toInt(),
   color: (json['color'] as num).toInt(),
+  pos: Vector2D.fromJson(json['pos'] as Map<String, dynamic>),
   isBlocked: json['isBlocked'] as bool? ?? false,
 );
 
 Map<String, dynamic> _$ScrewToJson(_Screw instance) => <String, dynamic>{
   'id': instance.id,
-  'plate': instance.plate,
-  'anchor': instance.anchor,
+  'plateId': instance.plateId,
+  'anchorIndex': instance.anchorIndex,
   'color': instance.color,
+  'pos': instance.pos.toJson(),
   'isBlocked': instance.isBlocked,
 };
 
 _Plate _$PlateFromJson(Map<String, dynamic> json) => _Plate(
   id: json['id'] as String,
   layer: (json['layer'] as num).toInt(),
-  shape: json['shape'] as String,
-  pos: (json['pos'] as List<dynamic>)
-      .map((e) => (e as num).toDouble())
-      .toList(),
+  shape: Polygon.fromJson(json['shape'] as Map<String, dynamic>),
+  pos: Vector2D.fromJson(json['pos'] as Map<String, dynamic>),
   rot: (json['rot'] as num).toDouble(),
   scale: (json['scale'] as num).toDouble(),
+  present: json['present'] as bool? ?? true,
 );
 
 Map<String, dynamic> _$PlateToJson(_Plate instance) => <String, dynamic>{
   'id': instance.id,
   'layer': instance.layer,
-  'shape': instance.shape,
-  'pos': instance.pos,
+  'shape': instance.shape.toJson(),
+  'pos': instance.pos.toJson(),
   'rot': instance.rot,
   'scale': instance.scale,
+  'present': instance.present,
 };
 
-_Box _$BoxFromJson(Map<String, dynamic> json) => _Box(
+_BoxState _$BoxStateFromJson(Map<String, dynamic> json) => _BoxState(
   color: (json['color'] as num).toInt(),
-  count: (json['count'] as num).toInt(),
+  count: (json['count'] as num?)?.toInt() ?? 0,
 );
 
-Map<String, dynamic> _$BoxToJson(_Box instance) => <String, dynamic>{
+Map<String, dynamic> _$BoxStateToJson(_BoxState instance) => <String, dynamic>{
   'color': instance.color,
   'count': instance.count,
 };

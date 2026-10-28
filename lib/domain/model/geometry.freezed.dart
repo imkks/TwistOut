@@ -209,8 +209,8 @@ return $default(_that.x,_that.y);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Vector2D implements Vector2D {
-  const _Vector2D({required this.x, required this.y});
+class _Vector2D extends Vector2D {
+  const _Vector2D({required this.x, required this.y}): super._();
   factory _Vector2D.fromJson(Map<String, dynamic> json) => _$Vector2DFromJson(json);
 
 @override final  double x;
@@ -477,8 +477,8 @@ return $default(_that.x,_that.y,_that.width,_that.height);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Rect2D implements Rect2D {
-  const _Rect2D({required this.x, required this.y, required this.width, required this.height});
+class _Rect2D extends Rect2D {
+  const _Rect2D({required this.x, required this.y, required this.width, required this.height}): super._();
   factory _Rect2D.fromJson(Map<String, dynamic> json) => _$Rect2DFromJson(json);
 
 @override final  double x;
@@ -543,6 +543,275 @@ as double,y: null == y ? _self.y : y // ignore: cast_nullable_to_non_nullable
 as double,width: null == width ? _self.width : width // ignore: cast_nullable_to_non_nullable
 as double,height: null == height ? _self.height : height // ignore: cast_nullable_to_non_nullable
 as double,
+  ));
+}
+
+
+}
+
+
+/// @nodoc
+mixin _$Polygon {
+
+ List<Vector2D> get vertices;
+/// Create a copy of Polygon
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$PolygonCopyWith<Polygon> get copyWith => _$PolygonCopyWithImpl<Polygon>(this as Polygon, _$identity);
+
+  /// Serializes this Polygon to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Polygon&&const DeepCollectionEquality().equals(other.vertices, vertices));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(vertices));
+
+@override
+String toString() {
+  return 'Polygon(vertices: $vertices)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class $PolygonCopyWith<$Res>  {
+  factory $PolygonCopyWith(Polygon value, $Res Function(Polygon) _then) = _$PolygonCopyWithImpl;
+@useResult
+$Res call({
+ List<Vector2D> vertices
+});
+
+
+
+
+}
+/// @nodoc
+class _$PolygonCopyWithImpl<$Res>
+    implements $PolygonCopyWith<$Res> {
+  _$PolygonCopyWithImpl(this._self, this._then);
+
+  final Polygon _self;
+  final $Res Function(Polygon) _then;
+
+/// Create a copy of Polygon
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? vertices = null,}) {
+  return _then(_self.copyWith(
+vertices: null == vertices ? _self.vertices : vertices // ignore: cast_nullable_to_non_nullable
+as List<Vector2D>,
+  ));
+}
+
+}
+
+
+/// Adds pattern-matching-related methods to [Polygon].
+extension PolygonPatterns on Polygon {
+/// A variant of `map` that fallback to returning `orElse`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Polygon value)?  $default,{required TResult orElse(),}){
+final _that = this;
+switch (_that) {
+case _Polygon() when $default != null:
+return $default(_that);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// Callbacks receives the raw object, upcasted.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case final Subclass2 value:
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Polygon value)  $default,){
+final _that = this;
+switch (_that) {
+case _Polygon():
+return $default(_that);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `map` that fallback to returning `null`.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case final Subclass value:
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Polygon value)?  $default,){
+final _that = this;
+switch (_that) {
+case _Polygon() when $default != null:
+return $default(_that);case _:
+  return null;
+
+}
+}
+/// A variant of `when` that fallback to an `orElse` callback.
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return orElse();
+/// }
+/// ```
+
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( List<Vector2D> vertices)?  $default,{required TResult orElse(),}) {final _that = this;
+switch (_that) {
+case _Polygon() when $default != null:
+return $default(_that.vertices);case _:
+  return orElse();
+
+}
+}
+/// A `switch`-like method, using callbacks.
+///
+/// As opposed to `map`, this offers destructuring.
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case Subclass2(:final field2):
+///     return ...;
+/// }
+/// ```
+
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( List<Vector2D> vertices)  $default,) {final _that = this;
+switch (_that) {
+case _Polygon():
+return $default(_that.vertices);case _:
+  throw StateError('Unexpected subclass');
+
+}
+}
+/// A variant of `when` that fallback to returning `null`
+///
+/// It is equivalent to doing:
+/// ```dart
+/// switch (sealedClass) {
+///   case Subclass(:final field):
+///     return ...;
+///   case _:
+///     return null;
+/// }
+/// ```
+
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( List<Vector2D> vertices)?  $default,) {final _that = this;
+switch (_that) {
+case _Polygon() when $default != null:
+return $default(_that.vertices);case _:
+  return null;
+
+}
+}
+
+}
+
+/// @nodoc
+@JsonSerializable()
+
+class _Polygon extends Polygon {
+  const _Polygon({required final  List<Vector2D> vertices}): _vertices = vertices,super._();
+  factory _Polygon.fromJson(Map<String, dynamic> json) => _$PolygonFromJson(json);
+
+ final  List<Vector2D> _vertices;
+@override List<Vector2D> get vertices {
+  if (_vertices is EqualUnmodifiableListView) return _vertices;
+  // ignore: implicit_dynamic_type
+  return EqualUnmodifiableListView(_vertices);
+}
+
+
+/// Create a copy of Polygon
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$PolygonCopyWith<_Polygon> get copyWith => __$PolygonCopyWithImpl<_Polygon>(this, _$identity);
+
+@override
+Map<String, dynamic> toJson() {
+  return _$PolygonToJson(this, );
+}
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Polygon&&const DeepCollectionEquality().equals(other._vertices, _vertices));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,const DeepCollectionEquality().hash(_vertices));
+
+@override
+String toString() {
+  return 'Polygon(vertices: $vertices)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$PolygonCopyWith<$Res> implements $PolygonCopyWith<$Res> {
+  factory _$PolygonCopyWith(_Polygon value, $Res Function(_Polygon) _then) = __$PolygonCopyWithImpl;
+@override @useResult
+$Res call({
+ List<Vector2D> vertices
+});
+
+
+
+
+}
+/// @nodoc
+class __$PolygonCopyWithImpl<$Res>
+    implements _$PolygonCopyWith<$Res> {
+  __$PolygonCopyWithImpl(this._self, this._then);
+
+  final _Polygon _self;
+  final $Res Function(_Polygon) _then;
+
+/// Create a copy of Polygon
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? vertices = null,}) {
+  return _then(_Polygon(
+vertices: null == vertices ? _self._vertices : vertices // ignore: cast_nullable_to_non_nullable
+as List<Vector2D>,
   ));
 }
 

@@ -15,7 +15,7 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$Screw {
 
- String get id; String get plate; int get anchor; int get color; bool get isBlocked;
+ String get id; String get plateId; int get anchorIndex; int get color; Vector2D get pos; bool get isBlocked;
 /// Create a copy of Screw
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -28,16 +28,16 @@ $ScrewCopyWith<Screw> get copyWith => _$ScrewCopyWithImpl<Screw>(this as Screw, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Screw&&(identical(other.id, id) || other.id == id)&&(identical(other.plate, plate) || other.plate == plate)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.color, color) || other.color == color)&&(identical(other.isBlocked, isBlocked) || other.isBlocked == isBlocked));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Screw&&(identical(other.id, id) || other.id == id)&&(identical(other.plateId, plateId) || other.plateId == plateId)&&(identical(other.anchorIndex, anchorIndex) || other.anchorIndex == anchorIndex)&&(identical(other.color, color) || other.color == color)&&(identical(other.pos, pos) || other.pos == pos)&&(identical(other.isBlocked, isBlocked) || other.isBlocked == isBlocked));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,plate,anchor,color,isBlocked);
+int get hashCode => Object.hash(runtimeType,id,plateId,anchorIndex,color,pos,isBlocked);
 
 @override
 String toString() {
-  return 'Screw(id: $id, plate: $plate, anchor: $anchor, color: $color, isBlocked: $isBlocked)';
+  return 'Screw(id: $id, plateId: $plateId, anchorIndex: $anchorIndex, color: $color, pos: $pos, isBlocked: $isBlocked)';
 }
 
 
@@ -48,11 +48,11 @@ abstract mixin class $ScrewCopyWith<$Res>  {
   factory $ScrewCopyWith(Screw value, $Res Function(Screw) _then) = _$ScrewCopyWithImpl;
 @useResult
 $Res call({
- String id, String plate, int anchor, int color, bool isBlocked
+ String id, String plateId, int anchorIndex, int color, Vector2D pos, bool isBlocked
 });
 
 
-
+$Vector2DCopyWith<$Res> get pos;
 
 }
 /// @nodoc
@@ -65,17 +65,27 @@ class _$ScrewCopyWithImpl<$Res>
 
 /// Create a copy of Screw
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? plate = null,Object? anchor = null,Object? color = null,Object? isBlocked = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? plateId = null,Object? anchorIndex = null,Object? color = null,Object? pos = null,Object? isBlocked = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,plate: null == plate ? _self.plate : plate // ignore: cast_nullable_to_non_nullable
-as String,anchor: null == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
+as String,plateId: null == plateId ? _self.plateId : plateId // ignore: cast_nullable_to_non_nullable
+as String,anchorIndex: null == anchorIndex ? _self.anchorIndex : anchorIndex // ignore: cast_nullable_to_non_nullable
 as int,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
-as int,isBlocked: null == isBlocked ? _self.isBlocked : isBlocked // ignore: cast_nullable_to_non_nullable
+as int,pos: null == pos ? _self.pos : pos // ignore: cast_nullable_to_non_nullable
+as Vector2D,isBlocked: null == isBlocked ? _self.isBlocked : isBlocked // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
-
+/// Create a copy of Screw
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$Vector2DCopyWith<$Res> get pos {
+  
+  return $Vector2DCopyWith<$Res>(_self.pos, (value) {
+    return _then(_self.copyWith(pos: value));
+  });
+}
 }
 
 
@@ -157,10 +167,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String plate,  int anchor,  int color,  bool isBlocked)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  String plateId,  int anchorIndex,  int color,  Vector2D pos,  bool isBlocked)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Screw() when $default != null:
-return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);case _:
+return $default(_that.id,_that.plateId,_that.anchorIndex,_that.color,_that.pos,_that.isBlocked);case _:
   return orElse();
 
 }
@@ -178,10 +188,10 @@ return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String plate,  int anchor,  int color,  bool isBlocked)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  String plateId,  int anchorIndex,  int color,  Vector2D pos,  bool isBlocked)  $default,) {final _that = this;
 switch (_that) {
 case _Screw():
-return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);case _:
+return $default(_that.id,_that.plateId,_that.anchorIndex,_that.color,_that.pos,_that.isBlocked);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -198,10 +208,10 @@ return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);c
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String plate,  int anchor,  int color,  bool isBlocked)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  String plateId,  int anchorIndex,  int color,  Vector2D pos,  bool isBlocked)?  $default,) {final _that = this;
 switch (_that) {
 case _Screw() when $default != null:
-return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);case _:
+return $default(_that.id,_that.plateId,_that.anchorIndex,_that.color,_that.pos,_that.isBlocked);case _:
   return null;
 
 }
@@ -212,14 +222,15 @@ return $default(_that.id,_that.plate,_that.anchor,_that.color,_that.isBlocked);c
 /// @nodoc
 @JsonSerializable()
 
-class _Screw implements Screw {
-  const _Screw({required this.id, required this.plate, required this.anchor, required this.color, this.isBlocked = false});
+class _Screw extends Screw {
+  const _Screw({required this.id, required this.plateId, required this.anchorIndex, required this.color, required this.pos, this.isBlocked = false}): super._();
   factory _Screw.fromJson(Map<String, dynamic> json) => _$ScrewFromJson(json);
 
 @override final  String id;
-@override final  String plate;
-@override final  int anchor;
+@override final  String plateId;
+@override final  int anchorIndex;
 @override final  int color;
+@override final  Vector2D pos;
 @override@JsonKey() final  bool isBlocked;
 
 /// Create a copy of Screw
@@ -235,16 +246,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Screw&&(identical(other.id, id) || other.id == id)&&(identical(other.plate, plate) || other.plate == plate)&&(identical(other.anchor, anchor) || other.anchor == anchor)&&(identical(other.color, color) || other.color == color)&&(identical(other.isBlocked, isBlocked) || other.isBlocked == isBlocked));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Screw&&(identical(other.id, id) || other.id == id)&&(identical(other.plateId, plateId) || other.plateId == plateId)&&(identical(other.anchorIndex, anchorIndex) || other.anchorIndex == anchorIndex)&&(identical(other.color, color) || other.color == color)&&(identical(other.pos, pos) || other.pos == pos)&&(identical(other.isBlocked, isBlocked) || other.isBlocked == isBlocked));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,plate,anchor,color,isBlocked);
+int get hashCode => Object.hash(runtimeType,id,plateId,anchorIndex,color,pos,isBlocked);
 
 @override
 String toString() {
-  return 'Screw(id: $id, plate: $plate, anchor: $anchor, color: $color, isBlocked: $isBlocked)';
+  return 'Screw(id: $id, plateId: $plateId, anchorIndex: $anchorIndex, color: $color, pos: $pos, isBlocked: $isBlocked)';
 }
 
 
@@ -255,11 +266,11 @@ abstract mixin class _$ScrewCopyWith<$Res> implements $ScrewCopyWith<$Res> {
   factory _$ScrewCopyWith(_Screw value, $Res Function(_Screw) _then) = __$ScrewCopyWithImpl;
 @override @useResult
 $Res call({
- String id, String plate, int anchor, int color, bool isBlocked
+ String id, String plateId, int anchorIndex, int color, Vector2D pos, bool isBlocked
 });
 
 
-
+@override $Vector2DCopyWith<$Res> get pos;
 
 }
 /// @nodoc
@@ -272,25 +283,35 @@ class __$ScrewCopyWithImpl<$Res>
 
 /// Create a copy of Screw
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? plate = null,Object? anchor = null,Object? color = null,Object? isBlocked = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? plateId = null,Object? anchorIndex = null,Object? color = null,Object? pos = null,Object? isBlocked = null,}) {
   return _then(_Screw(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
-as String,plate: null == plate ? _self.plate : plate // ignore: cast_nullable_to_non_nullable
-as String,anchor: null == anchor ? _self.anchor : anchor // ignore: cast_nullable_to_non_nullable
+as String,plateId: null == plateId ? _self.plateId : plateId // ignore: cast_nullable_to_non_nullable
+as String,anchorIndex: null == anchorIndex ? _self.anchorIndex : anchorIndex // ignore: cast_nullable_to_non_nullable
 as int,color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
-as int,isBlocked: null == isBlocked ? _self.isBlocked : isBlocked // ignore: cast_nullable_to_non_nullable
+as int,pos: null == pos ? _self.pos : pos // ignore: cast_nullable_to_non_nullable
+as Vector2D,isBlocked: null == isBlocked ? _self.isBlocked : isBlocked // ignore: cast_nullable_to_non_nullable
 as bool,
   ));
 }
 
-
+/// Create a copy of Screw
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$Vector2DCopyWith<$Res> get pos {
+  
+  return $Vector2DCopyWith<$Res>(_self.pos, (value) {
+    return _then(_self.copyWith(pos: value));
+  });
+}
 }
 
 
 /// @nodoc
 mixin _$Plate {
 
- String get id; int get layer; String get shape; List<double> get pos; double get rot; double get scale;
+ String get id; int get layer; Polygon get shape; Vector2D get pos; double get rot; double get scale; bool get present;
 /// Create a copy of Plate
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -303,16 +324,16 @@ $PlateCopyWith<Plate> get copyWith => _$PlateCopyWithImpl<Plate>(this as Plate, 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Plate&&(identical(other.id, id) || other.id == id)&&(identical(other.layer, layer) || other.layer == layer)&&(identical(other.shape, shape) || other.shape == shape)&&const DeepCollectionEquality().equals(other.pos, pos)&&(identical(other.rot, rot) || other.rot == rot)&&(identical(other.scale, scale) || other.scale == scale));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Plate&&(identical(other.id, id) || other.id == id)&&(identical(other.layer, layer) || other.layer == layer)&&(identical(other.shape, shape) || other.shape == shape)&&(identical(other.pos, pos) || other.pos == pos)&&(identical(other.rot, rot) || other.rot == rot)&&(identical(other.scale, scale) || other.scale == scale)&&(identical(other.present, present) || other.present == present));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,layer,shape,const DeepCollectionEquality().hash(pos),rot,scale);
+int get hashCode => Object.hash(runtimeType,id,layer,shape,pos,rot,scale,present);
 
 @override
 String toString() {
-  return 'Plate(id: $id, layer: $layer, shape: $shape, pos: $pos, rot: $rot, scale: $scale)';
+  return 'Plate(id: $id, layer: $layer, shape: $shape, pos: $pos, rot: $rot, scale: $scale, present: $present)';
 }
 
 
@@ -323,11 +344,11 @@ abstract mixin class $PlateCopyWith<$Res>  {
   factory $PlateCopyWith(Plate value, $Res Function(Plate) _then) = _$PlateCopyWithImpl;
 @useResult
 $Res call({
- String id, int layer, String shape, List<double> pos, double rot, double scale
+ String id, int layer, Polygon shape, Vector2D pos, double rot, double scale, bool present
 });
 
 
-
+$PolygonCopyWith<$Res> get shape;$Vector2DCopyWith<$Res> get pos;
 
 }
 /// @nodoc
@@ -340,18 +361,37 @@ class _$PlateCopyWithImpl<$Res>
 
 /// Create a copy of Plate
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? layer = null,Object? shape = null,Object? pos = null,Object? rot = null,Object? scale = null,}) {
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? layer = null,Object? shape = null,Object? pos = null,Object? rot = null,Object? scale = null,Object? present = null,}) {
   return _then(_self.copyWith(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,layer: null == layer ? _self.layer : layer // ignore: cast_nullable_to_non_nullable
 as int,shape: null == shape ? _self.shape : shape // ignore: cast_nullable_to_non_nullable
-as String,pos: null == pos ? _self.pos : pos // ignore: cast_nullable_to_non_nullable
-as List<double>,rot: null == rot ? _self.rot : rot // ignore: cast_nullable_to_non_nullable
+as Polygon,pos: null == pos ? _self.pos : pos // ignore: cast_nullable_to_non_nullable
+as Vector2D,rot: null == rot ? _self.rot : rot // ignore: cast_nullable_to_non_nullable
 as double,scale: null == scale ? _self.scale : scale // ignore: cast_nullable_to_non_nullable
-as double,
+as double,present: null == present ? _self.present : present // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
-
+/// Create a copy of Plate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PolygonCopyWith<$Res> get shape {
+  
+  return $PolygonCopyWith<$Res>(_self.shape, (value) {
+    return _then(_self.copyWith(shape: value));
+  });
+}/// Create a copy of Plate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$Vector2DCopyWith<$Res> get pos {
+  
+  return $Vector2DCopyWith<$Res>(_self.pos, (value) {
+    return _then(_self.copyWith(pos: value));
+  });
+}
 }
 
 
@@ -433,10 +473,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  int layer,  String shape,  List<double> pos,  double rot,  double scale)?  $default,{required TResult orElse(),}) {final _that = this;
+@optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( String id,  int layer,  Polygon shape,  Vector2D pos,  double rot,  double scale,  bool present)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
 case _Plate() when $default != null:
-return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale);case _:
+return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale,_that.present);case _:
   return orElse();
 
 }
@@ -454,10 +494,10 @@ return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale
 /// }
 /// ```
 
-@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  int layer,  String shape,  List<double> pos,  double rot,  double scale)  $default,) {final _that = this;
+@optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( String id,  int layer,  Polygon shape,  Vector2D pos,  double rot,  double scale,  bool present)  $default,) {final _that = this;
 switch (_that) {
 case _Plate():
-return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale);case _:
+return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale,_that.present);case _:
   throw StateError('Unexpected subclass');
 
 }
@@ -474,10 +514,10 @@ return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale
 /// }
 /// ```
 
-@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  int layer,  String shape,  List<double> pos,  double rot,  double scale)?  $default,) {final _that = this;
+@optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( String id,  int layer,  Polygon shape,  Vector2D pos,  double rot,  double scale,  bool present)?  $default,) {final _that = this;
 switch (_that) {
 case _Plate() when $default != null:
-return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale);case _:
+return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale,_that.present);case _:
   return null;
 
 }
@@ -488,22 +528,17 @@ return $default(_that.id,_that.layer,_that.shape,_that.pos,_that.rot,_that.scale
 /// @nodoc
 @JsonSerializable()
 
-class _Plate implements Plate {
-  const _Plate({required this.id, required this.layer, required this.shape, required final  List<double> pos, required this.rot, required this.scale}): _pos = pos;
+class _Plate extends Plate {
+  const _Plate({required this.id, required this.layer, required this.shape, required this.pos, required this.rot, required this.scale, this.present = true}): super._();
   factory _Plate.fromJson(Map<String, dynamic> json) => _$PlateFromJson(json);
 
 @override final  String id;
 @override final  int layer;
-@override final  String shape;
- final  List<double> _pos;
-@override List<double> get pos {
-  if (_pos is EqualUnmodifiableListView) return _pos;
-  // ignore: implicit_dynamic_type
-  return EqualUnmodifiableListView(_pos);
-}
-
+@override final  Polygon shape;
+@override final  Vector2D pos;
 @override final  double rot;
 @override final  double scale;
+@override@JsonKey() final  bool present;
 
 /// Create a copy of Plate
 /// with the given fields replaced by the non-null parameter values.
@@ -518,16 +553,16 @@ Map<String, dynamic> toJson() {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Plate&&(identical(other.id, id) || other.id == id)&&(identical(other.layer, layer) || other.layer == layer)&&(identical(other.shape, shape) || other.shape == shape)&&const DeepCollectionEquality().equals(other._pos, _pos)&&(identical(other.rot, rot) || other.rot == rot)&&(identical(other.scale, scale) || other.scale == scale));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Plate&&(identical(other.id, id) || other.id == id)&&(identical(other.layer, layer) || other.layer == layer)&&(identical(other.shape, shape) || other.shape == shape)&&(identical(other.pos, pos) || other.pos == pos)&&(identical(other.rot, rot) || other.rot == rot)&&(identical(other.scale, scale) || other.scale == scale)&&(identical(other.present, present) || other.present == present));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
 @override
-int get hashCode => Object.hash(runtimeType,id,layer,shape,const DeepCollectionEquality().hash(_pos),rot,scale);
+int get hashCode => Object.hash(runtimeType,id,layer,shape,pos,rot,scale,present);
 
 @override
 String toString() {
-  return 'Plate(id: $id, layer: $layer, shape: $shape, pos: $pos, rot: $rot, scale: $scale)';
+  return 'Plate(id: $id, layer: $layer, shape: $shape, pos: $pos, rot: $rot, scale: $scale, present: $present)';
 }
 
 
@@ -538,11 +573,11 @@ abstract mixin class _$PlateCopyWith<$Res> implements $PlateCopyWith<$Res> {
   factory _$PlateCopyWith(_Plate value, $Res Function(_Plate) _then) = __$PlateCopyWithImpl;
 @override @useResult
 $Res call({
- String id, int layer, String shape, List<double> pos, double rot, double scale
+ String id, int layer, Polygon shape, Vector2D pos, double rot, double scale, bool present
 });
 
 
-
+@override $PolygonCopyWith<$Res> get shape;@override $Vector2DCopyWith<$Res> get pos;
 
 }
 /// @nodoc
@@ -555,39 +590,58 @@ class __$PlateCopyWithImpl<$Res>
 
 /// Create a copy of Plate
 /// with the given fields replaced by the non-null parameter values.
-@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? layer = null,Object? shape = null,Object? pos = null,Object? rot = null,Object? scale = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? layer = null,Object? shape = null,Object? pos = null,Object? rot = null,Object? scale = null,Object? present = null,}) {
   return _then(_Plate(
 id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
 as String,layer: null == layer ? _self.layer : layer // ignore: cast_nullable_to_non_nullable
 as int,shape: null == shape ? _self.shape : shape // ignore: cast_nullable_to_non_nullable
-as String,pos: null == pos ? _self._pos : pos // ignore: cast_nullable_to_non_nullable
-as List<double>,rot: null == rot ? _self.rot : rot // ignore: cast_nullable_to_non_nullable
+as Polygon,pos: null == pos ? _self.pos : pos // ignore: cast_nullable_to_non_nullable
+as Vector2D,rot: null == rot ? _self.rot : rot // ignore: cast_nullable_to_non_nullable
 as double,scale: null == scale ? _self.scale : scale // ignore: cast_nullable_to_non_nullable
-as double,
+as double,present: null == present ? _self.present : present // ignore: cast_nullable_to_non_nullable
+as bool,
   ));
 }
 
-
+/// Create a copy of Plate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$PolygonCopyWith<$Res> get shape {
+  
+  return $PolygonCopyWith<$Res>(_self.shape, (value) {
+    return _then(_self.copyWith(shape: value));
+  });
+}/// Create a copy of Plate
+/// with the given fields replaced by the non-null parameter values.
+@override
+@pragma('vm:prefer-inline')
+$Vector2DCopyWith<$Res> get pos {
+  
+  return $Vector2DCopyWith<$Res>(_self.pos, (value) {
+    return _then(_self.copyWith(pos: value));
+  });
+}
 }
 
 
 /// @nodoc
-mixin _$Box {
+mixin _$BoxState {
 
  int get color; int get count;
-/// Create a copy of Box
+/// Create a copy of BoxState
 /// with the given fields replaced by the non-null parameter values.
 @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-$BoxCopyWith<Box> get copyWith => _$BoxCopyWithImpl<Box>(this as Box, _$identity);
+$BoxStateCopyWith<BoxState> get copyWith => _$BoxStateCopyWithImpl<BoxState>(this as BoxState, _$identity);
 
-  /// Serializes this Box to a JSON map.
+  /// Serializes this BoxState to a JSON map.
   Map<String, dynamic> toJson();
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Box&&(identical(other.color, color) || other.color == color)&&(identical(other.count, count) || other.count == count));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is BoxState&&(identical(other.color, color) || other.color == color)&&(identical(other.count, count) || other.count == count));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -596,15 +650,15 @@ int get hashCode => Object.hash(runtimeType,color,count);
 
 @override
 String toString() {
-  return 'Box(color: $color, count: $count)';
+  return 'BoxState(color: $color, count: $count)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class $BoxCopyWith<$Res>  {
-  factory $BoxCopyWith(Box value, $Res Function(Box) _then) = _$BoxCopyWithImpl;
+abstract mixin class $BoxStateCopyWith<$Res>  {
+  factory $BoxStateCopyWith(BoxState value, $Res Function(BoxState) _then) = _$BoxStateCopyWithImpl;
 @useResult
 $Res call({
  int color, int count
@@ -615,14 +669,14 @@ $Res call({
 
 }
 /// @nodoc
-class _$BoxCopyWithImpl<$Res>
-    implements $BoxCopyWith<$Res> {
-  _$BoxCopyWithImpl(this._self, this._then);
+class _$BoxStateCopyWithImpl<$Res>
+    implements $BoxStateCopyWith<$Res> {
+  _$BoxStateCopyWithImpl(this._self, this._then);
 
-  final Box _self;
-  final $Res Function(Box) _then;
+  final BoxState _self;
+  final $Res Function(BoxState) _then;
 
-/// Create a copy of Box
+/// Create a copy of BoxState
 /// with the given fields replaced by the non-null parameter values.
 @pragma('vm:prefer-inline') @override $Res call({Object? color = null,Object? count = null,}) {
   return _then(_self.copyWith(
@@ -635,8 +689,8 @@ as int,
 }
 
 
-/// Adds pattern-matching-related methods to [Box].
-extension BoxPatterns on Box {
+/// Adds pattern-matching-related methods to [BoxState].
+extension BoxStatePatterns on BoxState {
 /// A variant of `map` that fallback to returning `orElse`.
 ///
 /// It is equivalent to doing:
@@ -649,10 +703,10 @@ extension BoxPatterns on Box {
 /// }
 /// ```
 
-@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _Box value)?  $default,{required TResult orElse(),}){
+@optionalTypeArgs TResult maybeMap<TResult extends Object?>(TResult Function( _BoxState value)?  $default,{required TResult orElse(),}){
 final _that = this;
 switch (_that) {
-case _Box() when $default != null:
+case _BoxState() when $default != null:
 return $default(_that);case _:
   return orElse();
 
@@ -671,10 +725,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _Box value)  $default,){
+@optionalTypeArgs TResult map<TResult extends Object?>(TResult Function( _BoxState value)  $default,){
 final _that = this;
 switch (_that) {
-case _Box():
+case _BoxState():
 return $default(_that);case _:
   throw StateError('Unexpected subclass');
 
@@ -692,10 +746,10 @@ return $default(_that);case _:
 /// }
 /// ```
 
-@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _Box value)?  $default,){
+@optionalTypeArgs TResult? mapOrNull<TResult extends Object?>(TResult? Function( _BoxState value)?  $default,){
 final _that = this;
 switch (_that) {
-case _Box() when $default != null:
+case _BoxState() when $default != null:
 return $default(_that);case _:
   return null;
 
@@ -715,7 +769,7 @@ return $default(_that);case _:
 
 @optionalTypeArgs TResult maybeWhen<TResult extends Object?>(TResult Function( int color,  int count)?  $default,{required TResult orElse(),}) {final _that = this;
 switch (_that) {
-case _Box() when $default != null:
+case _BoxState() when $default != null:
 return $default(_that.color,_that.count);case _:
   return orElse();
 
@@ -736,7 +790,7 @@ return $default(_that.color,_that.count);case _:
 
 @optionalTypeArgs TResult when<TResult extends Object?>(TResult Function( int color,  int count)  $default,) {final _that = this;
 switch (_that) {
-case _Box():
+case _BoxState():
 return $default(_that.color,_that.count);case _:
   throw StateError('Unexpected subclass');
 
@@ -756,7 +810,7 @@ return $default(_that.color,_that.count);case _:
 
 @optionalTypeArgs TResult? whenOrNull<TResult extends Object?>(TResult? Function( int color,  int count)?  $default,) {final _that = this;
 switch (_that) {
-case _Box() when $default != null:
+case _BoxState() when $default != null:
 return $default(_that.color,_that.count);case _:
   return null;
 
@@ -768,27 +822,27 @@ return $default(_that.color,_that.count);case _:
 /// @nodoc
 @JsonSerializable()
 
-class _Box implements Box {
-  const _Box({required this.color, required this.count});
-  factory _Box.fromJson(Map<String, dynamic> json) => _$BoxFromJson(json);
+class _BoxState extends BoxState {
+  const _BoxState({required this.color, this.count = 0}): super._();
+  factory _BoxState.fromJson(Map<String, dynamic> json) => _$BoxStateFromJson(json);
 
 @override final  int color;
-@override final  int count;
+@override@JsonKey() final  int count;
 
-/// Create a copy of Box
+/// Create a copy of BoxState
 /// with the given fields replaced by the non-null parameter values.
 @override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
-_$BoxCopyWith<_Box> get copyWith => __$BoxCopyWithImpl<_Box>(this, _$identity);
+_$BoxStateCopyWith<_BoxState> get copyWith => __$BoxStateCopyWithImpl<_BoxState>(this, _$identity);
 
 @override
 Map<String, dynamic> toJson() {
-  return _$BoxToJson(this, );
+  return _$BoxStateToJson(this, );
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is _Box&&(identical(other.color, color) || other.color == color)&&(identical(other.count, count) || other.count == count));
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _BoxState&&(identical(other.color, color) || other.color == color)&&(identical(other.count, count) || other.count == count));
 }
 
 @JsonKey(includeFromJson: false, includeToJson: false)
@@ -797,15 +851,15 @@ int get hashCode => Object.hash(runtimeType,color,count);
 
 @override
 String toString() {
-  return 'Box(color: $color, count: $count)';
+  return 'BoxState(color: $color, count: $count)';
 }
 
 
 }
 
 /// @nodoc
-abstract mixin class _$BoxCopyWith<$Res> implements $BoxCopyWith<$Res> {
-  factory _$BoxCopyWith(_Box value, $Res Function(_Box) _then) = __$BoxCopyWithImpl;
+abstract mixin class _$BoxStateCopyWith<$Res> implements $BoxStateCopyWith<$Res> {
+  factory _$BoxStateCopyWith(_BoxState value, $Res Function(_BoxState) _then) = __$BoxStateCopyWithImpl;
 @override @useResult
 $Res call({
  int color, int count
@@ -816,17 +870,17 @@ $Res call({
 
 }
 /// @nodoc
-class __$BoxCopyWithImpl<$Res>
-    implements _$BoxCopyWith<$Res> {
-  __$BoxCopyWithImpl(this._self, this._then);
+class __$BoxStateCopyWithImpl<$Res>
+    implements _$BoxStateCopyWith<$Res> {
+  __$BoxStateCopyWithImpl(this._self, this._then);
 
-  final _Box _self;
-  final $Res Function(_Box) _then;
+  final _BoxState _self;
+  final $Res Function(_BoxState) _then;
 
-/// Create a copy of Box
+/// Create a copy of BoxState
 /// with the given fields replaced by the non-null parameter values.
 @override @pragma('vm:prefer-inline') $Res call({Object? color = null,Object? count = null,}) {
-  return _then(_Box(
+  return _then(_BoxState(
 color: null == color ? _self.color : color // ignore: cast_nullable_to_non_nullable
 as int,count: null == count ? _self.count : count // ignore: cast_nullable_to_non_nullable
 as int,
