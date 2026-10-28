@@ -4,7 +4,7 @@ part 'geometry.freezed.dart';
 part 'geometry.g.dart';
 
 @freezed
-class Vector2D with _$Vector2D {
+abstract class Vector2D with _$Vector2D {
   const factory Vector2D({
     required double x,
     required double y,
@@ -15,7 +15,7 @@ class Vector2D with _$Vector2D {
 }
 
 @freezed
-class Rect2D with _$Rect2D {
+abstract class Rect2D with _$Rect2D {
   const factory Rect2D({
     required double x,
     required double y,

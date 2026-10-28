@@ -18,7 +18,6 @@ build/
 *.iws
 
 # Android
-android/
 android/local.properties
 android/.gradle
 android/build/

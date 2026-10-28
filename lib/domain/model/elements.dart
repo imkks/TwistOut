@@ -4,7 +4,7 @@ part 'elements.freezed.dart';
 part 'elements.g.dart';
 
 @freezed
-class Screw with _$Screw {
+abstract class Screw with _$Screw {
   const factory Screw({
     required String id,
     required String plate,
@@ -17,7 +17,7 @@ class Screw with _$Screw {
 }
 
 @freezed
-class Plate with _$Plate {
+abstract class Plate with _$Plate {
   const factory Plate({
     required String id,
     required int layer,
@@ -31,7 +31,7 @@ class Plate with _$Plate {
 }
 
 @freezed
-class Box with _$Box {
+abstract class Box with _$Box {
   const factory Box({
     required int color,
     required int count,
