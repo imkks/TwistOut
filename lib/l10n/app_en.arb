@@ -1,0 +1,121 @@
+{
+  "@@locale": "en",
+  "app_title": "Twist Out",
+  "@app_title": {
+    "description": "Game title"
+  },
+  "play_level": "Level {n}",
+  "@play_level": {
+    "description": "Play level button label",
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "double_reward": "Double",
+  "@double_reward": {
+    "description": "Double reward button label"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Next level button"
+  },
+  "revive": "Revive +3 slots",
+  "@revive": {
+    "description": "Revive button label"
+  },
+  "restart": "Restart",
+  "@restart": {
+    "description": "Restart button"
+  },
+  "resume": "Resume",
+  "@resume": {
+    "description": "Resume button"
+  },
+  "home": "Home",
+  "@home": {
+    "description": "Home button"
+  },
+  "pause": "Pause",
+  "@pause": {
+    "description": "Pause title"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings title"
+  },
+  "music": "Music",
+  "@music": {
+    "description": "Music toggle label"
+  },
+  "sound": "Sound Effects",
+  "@sound": {
+    "description": "Sound effects toggle label"
+  },
+  "haptics": "Haptics",
+  "@haptics": {
+    "description": "Haptics toggle label"
+  },
+  "colourblind": "Colorblind Symbols",
+  "@colourblind": {
+    "description": "Colorblind symbols mode toggle label"
+  },
+  "level_won": "Level Complete!",
+  "@level_won": {
+    "description": "Win modal title"
+  },
+  "level_lost": "Tray Full!",
+  "@level_lost": {
+    "description": "Lose modal title"
+  },
+  "coins_earned": "+{coins} Coins",
+  "@coins_earned": {
+    "description": "Coins earned label",
+    "placeholders": {
+      "coins": {
+        "type": "int"
+      }
+    }
+  },
+  "out_of_boosters": "Get more",
+  "@out_of_boosters": {
+    "description": "Out of boosters prompt"
+  },
+  "booster_extra_slot": "Extra Slot",
+  "@booster_extra_slot": {
+    "description": "Extra slot booster name"
+  },
+  "booster_magnet": "Magnet",
+  "@booster_magnet": {
+    "description": "Magnet booster name"
+  },
+  "booster_smash": "Smash",
+  "@booster_smash": {
+    "description": "Smash booster name"
+  },
+  "daily_title": "Daily reward",
+  "@daily_title": {
+    "description": "Daily reward title"
+  },
+  "workshop_title": "Workshop",
+  "@workshop_title": {
+    "description": "Workshop title"
+  },
+  "rate_pre": "Enjoying Twist Out?",
+  "@rate_pre": {
+    "description": "Rate prompt"
+  },
+  "remove_ads": "Remove ads",
+  "@remove_ads": {
+    "description": "Remove ads button"
+  },
+  "restore": "Restore purchases",
+  "@restore": {
+    "description": "Restore purchases button"
+  },
+  "no_ad_available": "No ad available right now",
+  "@no_ad_available": {
+    "description": "No ad message"
+  }
+}
