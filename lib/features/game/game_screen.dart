@@ -32,14 +32,22 @@ class _GameScreenState extends ConsumerState<GameScreen> {
   bool _dialogShown = false;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      ref.read(gameControllerProvider.notifier).loadLevel(widget.levelNumber);
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final levelDef = LevelCatalog.getLevel(widget.levelNumber);
-    final gameState = ref.watch(gameControllerProvider(widget.levelNumber));
-    final controller = ref.read(gameControllerProvider(widget.levelNumber).notifier);
+    final gameState = ref.watch(gameControllerProvider);
+    final controller = ref.read(gameControllerProvider.notifier);
     final player = ref.watch(playerProvider);
 
     // Listen for game end conditions
-    ref.listen(gameControllerProvider(widget.levelNumber), (previous, next) {
+    ref.listen(gameControllerProvider, (previous, next) {
       if (!_dialogShown) {
         if (next.status == GameStatus.won) {
           _dialogShown = true;

@@ -99,11 +99,18 @@ final playerProvider =
     NotifierProvider<PlayerNotifier, PlayerSaveData>(PlayerNotifier.new);
 
 // Active Game Controller
-class GameController extends AutoDisposeFamilyNotifier<GameState, int> {
+class GameController extends Notifier<GameState> {
+  int _currentLevel = 1;
+  int get currentLevel => _currentLevel;
+
   @override
-  GameState build(int arg) {
-    final levelDef = LevelCatalog.getLevel(arg);
-    return levelDef.buildInitialState();
+  GameState build() {
+    return LevelCatalog.getLevel(1).buildInitialState();
+  }
+
+  void loadLevel(int levelNumber) {
+    _currentLevel = levelNumber;
+    state = LevelCatalog.getLevel(levelNumber).buildInitialState();
   }
 
   void tapScrew(String screwId) {
@@ -134,8 +141,11 @@ class GameController extends AutoDisposeFamilyNotifier<GameState, int> {
         case Won():
           audio.playWin();
           haptics.success();
-          final stars = state.trayPeak <= 3 ? 3 : (state.trayPeak <= 4 ? 2 : 1);
-          ref.read(playerProvider.notifier).completeLevel(arg, stars, 20);
+          final stars =
+              state.trayPeak <= 3 ? 3 : (state.trayPeak <= 4 ? 2 : 1);
+          ref
+              .read(playerProvider.notifier)
+              .completeLevel(_currentLevel, stars, 20);
         case Lost():
           audio.playLose();
           haptics.error();
@@ -161,7 +171,7 @@ class GameController extends AutoDisposeFamilyNotifier<GameState, int> {
     ref.read(audioServiceProvider).playBooster();
     ref.read(hapticsServiceProvider).heavyImpact();
 
-    final result = step(state, UseBooster(type: type, targetId: targetId));
+    final result = step(state, UseBooster(type, targetId));
     state = result.state;
   }
 
@@ -173,12 +183,9 @@ class GameController extends AutoDisposeFamilyNotifier<GameState, int> {
   }
 
   void restart() {
-    final levelDef = LevelCatalog.getLevel(arg);
-    state = levelDef.buildInitialState();
+    loadLevel(_currentLevel);
   }
 }
 
 final gameControllerProvider =
-    NotifierProvider.autoDispose.family<GameController, GameState, int>(
-  GameController.new,
-);
+    NotifierProvider<GameController, GameState>(GameController.new);
