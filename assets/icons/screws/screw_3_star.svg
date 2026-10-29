@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="21" fill="#30A46C" stroke="#1B6A43" stroke-width="3" />
+  <circle cx="24" cy="24" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" />
+  <!-- 6-Point Star (Two Interlocking Triangles) -->
+  <polygon points="24,12 33,28 15,28" fill="#2B2118" />
+  <polygon points="24,36 33,20 15,20" fill="#2B2118" />
+</svg>

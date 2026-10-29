@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="slotHole" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#140E08" />
+      <stop offset="100%" stop-color="#2B2118" />
+    </radialGradient>
+    <linearGradient id="metalRim" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FDF2D0" />
+      <stop offset="100%" stop-color="#CBB38B" />
+    </linearGradient>
+    <linearGradient id="plusBadge" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#30A46C" />
+      <stop offset="100%" stop-color="#178F5F" />
+    </linearGradient>
+  </defs>
+  <!-- Base Plate / Recessed Tray Slot -->
+  <rect x="6" y="10" width="52" height="44" rx="14" fill="#E8D2A7" stroke="#2B2118" stroke-width="3" />
+  <!-- Recessed Inner Bezel -->
+  <circle cx="28" cy="32" r="18" fill="url(#metalRim)" stroke="#9F8259" stroke-width="2" />
+  <circle cx="28" cy="32" r="14" fill="url(#slotHole)" stroke="#1A130C" stroke-width="1.5" />
+  <!-- Gloss highlight inside hole -->
+  <ellipse cx="28" cy="24" rx="9" ry="3.5" fill="#FFFFFF" opacity="0.15" />
+  <!-- +1 Badge -->
+  <circle cx="46" cy="22" r="13" fill="url(#plusBadge)" stroke="#2B2118" stroke-width="2.5" />
+  <path d="M46 15v14M39 22h14" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" />
+</svg>

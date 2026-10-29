@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="21" fill="#E5484D" stroke="#A82A2E" stroke-width="3" />
+  <circle cx="24" cy="24" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" />
+  <!-- Engraved Cross -->
+  <path d="M24 13v22M13 24h22" stroke="#2B2118" stroke-width="4.5" stroke-linecap="round" />
+  <path d="M24 13v22M13 24h22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.4" />
+</svg>

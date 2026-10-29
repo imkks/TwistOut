@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="magRed" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FF6B6B" />
+      <stop offset="60%" stop-color="#E5484D" />
+      <stop offset="100%" stop-color="#B52A2E" />
+    </linearGradient>
+    <linearGradient id="magSilver" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#CCD1D9" />
+    </linearGradient>
+  </defs>
+  <!-- Horseshoe Magnet Body -->
+  <path d="M12 28 C12 14, 52 14, 52 28 V40 H40 V28 C40 22, 24 22, 24 28 V40 H12 Z" 
+        fill="url(#magRed)" stroke="#2B2118" stroke-width="3" stroke-linejoin="round"/>
+  <!-- Silver Pole Tips -->
+  <rect x="12" y="38" width="12" height="12" rx="2" fill="url(#magSilver)" stroke="#2B2118" stroke-width="2.5" />
+  <rect x="40" y="38" width="12" height="12" rx="2" fill="url(#magSilver)" stroke="#2B2118" stroke-width="2.5" />
+  <!-- Magnetic Force Waves -->
+  <path d="M14 54 C16 57, 20 59, 24 59" stroke="#FFC53D" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <path d="M40 59 C44 59, 48 57, 50 54" stroke="#FFC53D" stroke-width="2.5" stroke-linecap="round" fill="none" />
+  <!-- Gloss highlight -->
+  <path d="M16 26 C16 18, 48 18, 48 26" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.5"/>
+</svg>

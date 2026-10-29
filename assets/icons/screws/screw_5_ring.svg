@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="21" fill="#3E63DD" stroke="#203CA3" stroke-width="3" />
+  <circle cx="24" cy="24" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" />
+  <!-- Engraved Ring -->
+  <circle cx="24" cy="24" r="9" fill="none" stroke="#2B2118" stroke-width="4.5" />
+</svg>

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="21" fill="#F76B15" stroke="#B84405" stroke-width="3" />
+  <circle cx="24" cy="24" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.4" />
+  <!-- Engraved Slot -->
+  <line x1="12" y1="24" x2="36" y2="24" stroke="#2B2118" stroke-width="5" stroke-linecap="round" />
+  <line x1="12" y1="23.5" x2="36" y2="23.5" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.35" />
+</svg>

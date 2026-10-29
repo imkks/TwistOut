@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="hammerHead" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9BA1A6" />
+      <stop offset="70%" stop-color="#687076" />
+      <stop offset="100%" stop-color="#4B535B" />
+    </linearGradient>
+    <linearGradient id="woodHandle" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#D9A86C" />
+      <stop offset="100%" stop-color="#A16F3E" />
+    </linearGradient>
+  </defs>
+  <!-- Angled Mallet / Hammer -->
+  <g transform="rotate(-30 32 32)">
+    <!-- Handle -->
+    <rect x="28" y="24" width="8" height="34" rx="4" fill="url(#woodHandle)" stroke="#2B2118" stroke-width="2.5"/>
+    <rect x="29" y="52" width="6" height="5" rx="1.5" fill="#E5484D" />
+    <!-- Mallet Head -->
+    <rect x="18" y="10" width="28" height="18" rx="4" fill="url(#hammerHead)" stroke="#2B2118" stroke-width="3"/>
+    <!-- Head Strike Faces -->
+    <rect x="15" y="12" width="4" height="14" rx="2" fill="#D7DBDF" stroke="#2B2118" stroke-width="2"/>
+    <rect x="45" y="12" width="4" height="14" rx="2" fill="#D7DBDF" stroke="#2B2118" stroke-width="2"/>
+    <!-- Specular Reflection -->
+    <line x1="22" y1="13" x2="42" y2="13" stroke="#FFFFFF" stroke-width="1.8" stroke-linecap="round" opacity="0.6"/>
+  </g>
+  <!-- Impact Sparks -->
+  <path d="M50 14 L55 9 M54 22 L60 21 M43 8 L44 3" stroke="#FFC53D" stroke-width="2.5" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <circle cx="24" cy="24" r="21" fill="#FFC53D" stroke="#B88214" stroke-width="3" />
+  <circle cx="24" cy="24" r="17" fill="none" stroke="#FFFFFF" stroke-width="1.5" opacity="0.5" />
+  <!-- Engraved Hexagon -->
+  <polygon points="24,14 33,19 33,29 24,34 15,29 15,19" fill="#2B2118" stroke="#2B2118" stroke-width="2" stroke-linejoin="round"/>
+</svg>
